@@ -6,15 +6,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MerinaFight extends Game {
 	public SpriteBatch batch;
+	public BitmapFont yourBitmapFontName;
+//	private String yourScoreName;
 	public boolean isPress = false;
 
 	@Override
 	public void create () {
 		 batch = new SpriteBatch();
+		 yourBitmapFontName = new BitmapFont();
 	     setScreen(new GameScreen(this));
 
 	}
@@ -22,6 +26,7 @@ public class MerinaFight extends Game {
 	@Override
 	public void render () {
 		 super.render();
+//		 yourScoreName = "score: " + GameScreen.score;
 
 	}
 	

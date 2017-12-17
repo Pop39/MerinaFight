@@ -2,6 +2,7 @@ package com.panot.mygdx.game;
 
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen extends ScreenAdapter {
@@ -14,7 +15,9 @@ public class GameScreen extends ScreenAdapter {
 	private Texture merin1Img;
 	private Texture merin2Img;
 	private long time;
+	private String yourScoreName;
 	public int score = 0;
+
     
 	public GameScreen(MerinaFight merinaFight) {
         this.merinaFight = merinaFight;
@@ -29,6 +32,9 @@ public class GameScreen extends ScreenAdapter {
     @Override
 	public void render (float delta) {
         SpriteBatch batch = merinaFight.batch;
+        BitmapFont yourBitmapFontName = merinaFight.yourBitmapFontName;
+        yourScoreName = "score: " + score;
+        update(delta);
         batch.begin();
         batch.draw(thunderImg, 100, 50);
         batch.draw(fireImg, 300, 50);
@@ -36,18 +42,18 @@ public class GameScreen extends ScreenAdapter {
         batch.draw(leafImg, 700, 50);
         batch.draw(merin1Img, 200, 300);
         batch.draw(merin2Img, 600, 300);
+        yourBitmapFontName.draw(batch, yourScoreName, 25, 100);
         batch.end();
-        update(delta);
     }
     
     public void update(float delta) {
     	score += merinaFight.fight();
         time = System.currentTimeMillis();
 
-    	if(merinaFight.isPress == true) {//how to make a delay?
+    	if(merinaFight.isPress == true) {
     		System.out.println("score" + score);//how to create score board ?
     		merinaFight.isPress = false;
-    		while(System.currentTimeMillis() < time+800) {
+    		while(System.currentTimeMillis() < time+500) {
     			;
     		}
     	}
