@@ -27,6 +27,7 @@ public class GameScreen extends ScreenAdapter {
 	private Texture drawC;
 	private long time;
 	private String yourScoreName;
+	private String set;
 	public int Pcard ;
 	public int Ccard;
 	public int scoreP = 0;
@@ -56,6 +57,7 @@ public class GameScreen extends ScreenAdapter {
         BitmapFont yourBitmapFontName = merinaFight.yourBitmapFontName;
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         yourScoreName = "score: " + scoreP + ":" + scoreC;
+        set = "Keyboard: Left = leaf , Right = fire , Up = water , Down = thunder";
         update(delta);
         batch.begin();
         if(Pcard == 1) {
@@ -112,7 +114,7 @@ public class GameScreen extends ScreenAdapter {
 				batch.draw(winC, 800,300);
 			}
 		}
-        
+        yourBitmapFontName.draw(batch,set, 10, 680);
         batch.draw(leafImg, 100, 50);
         batch.draw(fireImg, 300, 50);
         batch.draw(waterImg, 500, 50);
@@ -128,7 +130,6 @@ public class GameScreen extends ScreenAdapter {
     	if(player() == true) {
     		com();
     		fight();
-    		System.out.println("score" + scoreP + ":" + scoreC);//how to create score board ?
     		while(System.currentTimeMillis() < time+400) {
     			;
     		}
