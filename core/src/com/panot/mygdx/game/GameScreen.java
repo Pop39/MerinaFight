@@ -158,7 +158,7 @@ public class GameScreen extends ScreenAdapter {
 				scoreP += -1;
 				scoreC += -1;
 			}
-			else if(Pcard == Ccard-1 && Pcard != 1){//lose
+			else if(Pcard == Ccard-1){//lose
 				scoreP += -1;
 				scoreC += 1;
 			}
